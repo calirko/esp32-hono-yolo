@@ -3,9 +3,10 @@
 #include "esp_wifi.h"
 #include <WiFi.h>
 #include "board_config.h"
+#include "secrets.h"
 
-const char *ssid = "YOUR_SSID";
-const char *password = "YOUR_PASSWORD";
+const char *ssid = WIFI_SSID;
+const char *password = WIFI_PASSWORD;
 
 void startCameraServer();
 
