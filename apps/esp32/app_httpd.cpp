@@ -3,12 +3,13 @@
 #include "esp_camera.h"
 #include "img_converters.h"
 #include "board_config.h"
+#include "secrets.h"
 
 #if defined(ARDUINO_ARCH_ESP32) && defined(CONFIG_ARDUHAL_ESP_LOG)
 #include "esp32-hal-log.h"
 #endif
 
-#define API_KEY "0MYIWaLu8xM4KlL8RE7lgWvA17yMUN3M"
+#define API_KEY ESP32_API_KEY
 
 httpd_handle_t camera_httpd = NULL;
 
