@@ -1,9 +1,8 @@
 import json
 import sys
 import tkinter as tk
-from tkinter import filedialog
-
 from pathlib import Path
+from tkinter import filedialog
 
 from ultralytics import YOLO
 
@@ -29,7 +28,7 @@ def main():
         sys.exit(1)
 
     trained = Path(__file__).parent / "best.pt"
-    model = YOLO(str(trained) if trained.exists() else "yolo26x.pt")
+    model = YOLO(str(trained) if trained.exists() else "yolo26l.pt")
     results = model(path, verbose=False)
 
     output = []

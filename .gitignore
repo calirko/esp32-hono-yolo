@@ -25,3 +25,5 @@ apps/image/dataset/
 
 # editor
 .claude/
+
+captures/

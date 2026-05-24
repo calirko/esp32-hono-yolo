@@ -1,5 +1,5 @@
-import sys
 import shutil
+import sys
 import tempfile
 from pathlib import Path
 
@@ -7,15 +7,18 @@ import yaml
 from ultralytics import YOLO
 
 DATASET = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).parent / "dataset"
-MODEL = sys.argv[2] if len(sys.argv) > 2 else "yolo26n.pt"
+MODEL = sys.argv[2] if len(sys.argv) > 2 else "yolo26l.pt"
 EPOCHS = int(sys.argv[3]) if len(sys.argv) > 3 else 50
 OUTPUT = Path(__file__).parent / "runs"
+
 
 def build_yaml(dataset: Path) -> Path:
     src = yaml.safe_load((dataset / "data.yaml").read_text())
 
     train_images = dataset / "train" / "images"
-    val_images = dataset / "valid" / "images" if (dataset / "valid").exists() else train_images
+    val_images = (
+        dataset / "valid" / "images" if (dataset / "valid").exists() else train_images
+    )
 
     data = {
         "train": str(train_images),
@@ -28,6 +31,7 @@ def build_yaml(dataset: Path) -> Path:
     yaml.dump(data, tmp)
     tmp.close()
     return Path(tmp.name)
+
 
 def main():
     print(f"Dataset   : {DATASET}")
@@ -50,6 +54,7 @@ def main():
     dest = Path(__file__).parent / "best.pt"
     shutil.copy(best, dest)
     print(f"\nTraining complete. Best weights saved to: {dest}")
+
 
 if __name__ == "__main__":
     main()

@@ -5,8 +5,8 @@ from pathlib import Path
 
 import requests
 
-ESP32_URL = os.getenv("ESP32_URL", "http://192.168.1.50")
-API_KEY = os.getenv("ESP32_API_KEY", "0MYIWaLu8xM4KlL8RE7lgWvA17yMUN3M")
+ESP32_URL = os.getenv("ESP32_URL", "http://192.168.1.57")
+API_KEY = os.getenv("ESP32_API_KEY", "Yom2akZf0QZNwBIap5tfNQkIWn9RhFfY")
 OUT_DIR = Path(__file__).parent / "captures"
 OUT_DIR.mkdir(exist_ok=True)
 
