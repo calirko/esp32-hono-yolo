@@ -1,0 +1,26 @@
+# dependencies
+node_modules/
+.venv/
+
+# env / secrets
+.env
+.env.*
+
+# python artifacts
+__pycache__/
+*.pyc
+*.pyo
+
+# model weights
+*.pt
+
+# training outputs & captured images
+apps/image/runs/
+apps/image/captures/
+apps/image/dataset/
+
+# bun
+.bun/
+
+# editor
+.claude/
